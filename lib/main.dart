@@ -1,8 +1,12 @@
-import 'package:are_you_talented_too/footer_navigated/login_page.dart';
+import 'package:are_you_talented_too/login_navigated/login_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 const Color color1 = Color.fromRGBO(51, 102, 0, 1);
@@ -15,14 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      /*
-      initialRoute: '/',
-      routes: {
-        '/login_page':(context)=>LoginPage(),
-        '/about_app':(context)=>AboutApp(),
-        '/main_page':(context)=>MainPage(),
-      },
-       */
+
       home: LoginPage(),
     );
   }

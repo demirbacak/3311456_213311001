@@ -1,13 +1,72 @@
-import 'package:are_you_talented_too/main_page_navigated/favourites.dart';
-import 'package:are_you_talented_too/main_page_navigated/hall_of_fame.dart';
+import 'package:are_you_talented_too/screens/main_page_navigated/file_download_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../widgets/my_widgets.dart';
 import '../main_page_navigated/categories.dart';
-import '../main.dart';
+import '../main_page_navigated/hall_of_fame.dart';
+import '../main_page_navigated/inspirations_screen.dart';
 import '../main_page_navigated/suggestions.dart';
-import '../my_widgets.dart';
 
 class MainPage extends StatelessWidget {
+  const MainPage({Key? key}) : super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+
+
+    return Scaffold(
+      body: ListView(
+        children: [
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              buildMainPageNavigation(
+                  myicon: FontAwesomeIcons.bars,
+                  pageName: "categories",
+                  mywidget: const Categories(),
+                  context: context),
+              buildMainPageNavigation(
+                  myicon: FontAwesomeIcons.star,
+                  pageName: "hall of fame",
+                  mywidget: const HallOfFame(),
+                  context: context),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              buildMainPageNavigation(
+                  myicon: FontAwesomeIcons.comment,
+                  pageName: "suggestions",
+                  mywidget: const Suggestions(),
+                  context: context),
+              buildMainPageNavigation(
+                  myicon: FontAwesomeIcons.download,
+                  pageName: "download file",
+                  mywidget: FileDownloadView(),
+                  context: context),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              buildMainPageNavigation(
+                  myicon: FontAwesomeIcons.pen,
+                  pageName: "inspirations",
+                  mywidget: const InspirationsScreen(),
+                  context: context),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+/*class MainPage extends StatelessWidget {
    MainPage({Key? key}) : super(key: key);
 
   String isim = "";
@@ -80,3 +139,4 @@ class MainPage extends StatelessWidget {
     );
   }
 }
+*/

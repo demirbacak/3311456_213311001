@@ -1,31 +1,30 @@
 import 'dart:async';
+import 'package:are_you_talented_too/login_navigated/base_scaffold.dart';
 import 'package:are_you_talented_too/main.dart';
-import 'package:are_you_talented_too/footer_navigated/main_page.dart';
 import 'package:flutter/material.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class LoginSplashScreen extends StatefulWidget {
+  const LoginSplashScreen({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<LoginSplashScreen> createState() => _LoginSplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
-  List<dynamic> adSoyad = [];
+class _LoginSplashScreenState extends State<LoginSplashScreen> {
+
 
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (_) => MainPage(),
-          settings: RouteSettings(arguments: adSoyad)));
+          builder: (_) => const BaseScaffold(),
+          ));
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    adSoyad = ModalRoute.of(context)?.settings.arguments as List;
 
     return Scaffold(
       backgroundColor: color1,

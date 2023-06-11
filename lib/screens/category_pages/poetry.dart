@@ -1,7 +1,42 @@
 import 'package:flutter/material.dart';
-import '../main.dart';
-import '../my_widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../main.dart';
+import '../../widgets/novel_tale_poetry_widget.dart';
+import '../../riverpod/riverpod_management.dart';
 
+class Poetry extends ConsumerWidget {
+  const Poetry({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+
+    var watch = ref.watch(novelTalePoetryRiverpod);
+    var read = ref.read(novelTalePoetryRiverpod);
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: color1,
+        title: const Text("poetry",
+            style: TextStyle(
+                fontSize: 18, color: color2, fontWeight: FontWeight.bold)),
+      ),
+
+      body:ListView.builder(
+        itemCount: read.poetryList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return NovelTalePoetryWidget(
+            model: watch.poetryList[index],
+            addOrRemoveFavourites: () =>
+                read.addOrRemoveFavourites(watch.poetryList[index]),
+          );
+        },
+      ),
+
+    );
+  }
+}
+
+/*
 class Poetry extends StatelessWidget {
   const Poetry({Key? key}) : super(key: key);
 
@@ -30,3 +65,4 @@ class Poetry extends StatelessWidget {
     );
   }
 }
+ */

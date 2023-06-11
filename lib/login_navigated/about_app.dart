@@ -1,6 +1,6 @@
-import 'package:are_you_talented_too/footer_navigated/login_page.dart';
 import 'package:flutter/material.dart';
 import '../main.dart';
+import 'login_page.dart';
 
 class AboutApp extends StatelessWidget {
   const AboutApp({Key? key}) : super(key: key);
@@ -10,9 +10,17 @@ class AboutApp extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: color1,
-        title: const Text("about app",
-            style: TextStyle(
-                fontSize: 18, color: color2, fontWeight: FontWeight.bold)),
+        title: GestureDetector(
+          onLongPressUp: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const LoginPage()));
+          },
+          child: const Text("about app",
+              style: TextStyle(
+                  fontSize: 18, color: color2, fontWeight: FontWeight.bold)),
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

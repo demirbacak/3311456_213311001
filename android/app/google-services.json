@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1094062466236",
+    "project_id": "are-you-talented-too",
+    "storage_bucket": "are-you-talented-too.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094062466236:android:89a2a621a43d764d709cb9",
+        "android_client_info": {
+          "package_name": "com.example.are_you_talented_too"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1094062466236-5hhk86ftn186765ovodj20fel581aboq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9MCU2vQNSlLxmbtV63zAhSxTsEjXpvOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1094062466236-5hhk86ftn186765ovodj20fel581aboq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
